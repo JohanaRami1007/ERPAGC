@@ -1,0 +1,90 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="plantilla.master.cs" Inherits="ERP.Vistas.Paginas.Masters.plantilla" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <script src="https://kit.fontawesome.com/b0cb49c5f4.js" crossorigin="anonymous"></script>
+    <link href="../../../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../Recursos/LOGO CUBO.png" rel="icon" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <%-- NavBar --%>
+            <nav class="navbar navbar-dark bg-dark navbar-expand-lg bg-body-tertiary text-center">
+                <div class="container-fluid text-light">
+                    <asp:ImageButton ID="imbtnInicio" runat="server" ImageUrl="~/Vistas/Recursos/LOGO CUBO.png" alt="Logo" Width="80" Height="60" OnClick="imbtnInicio_Click" />
+                     <asp:Label ID="lbltitulo" runat="server" Text="AGC Comercial" Class="m-3"></asp:Label>
+                   <%-- <a href="../inicio.aspx" class="navbar-brand" id="NombreImagen">
+                        <asp:Image ID="CuboAGC" runat="server" ImageUrl="~/Vistas/Recursos/LOGO CUBO.png" alt="Logo" Width="80" Height="60" />
+                        <font>AGC COMERCIAL</font>
+                    </a>--%>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav p-2">
+                            <asp:DropDownList ID="Ventas" runat="server" Class="Drop bg-dark text-light text-center p-2" AutoPostBack="true" OnSelectedIndexChanged="Ventas_SelectedIndexChanged">
+                                <asp:ListItem Selected="True" disabled="True"> Módulo Ventas </asp:ListItem>
+                                <asp:ListItem Selected="False" Enabled="true" Value="Cotizaciones">Cotizaciones</asp:ListItem>
+                                <asp:ListItem Selected="False" Enabled="true" Value="Orden">Orden de venta</asp:ListItem>
+                            </asp:DropDownList>
+                            <div class="p-1"></div>
+                            <asp:DropDownList ID="Catalogos" runat="server" Class="Drop bg-dark text-light text-center p-2" AutoPostBack="true" OnSelectedIndexChanged="Catalogos_SelectedIndexChanged">
+                                <asp:ListItem Selected="True" disabled="True"> Módulo Catálogos </asp:ListItem>
+                                <asp:ListItem Selected="False" Enabled="true" Value="Productos">Productos</asp:ListItem>
+                                <asp:ListItem Selected="False" Enabled="true" Value="Clientes">Clientes</asp:ListItem>
+                                <asp:ListItem Selected="False" Enabled="true" Value="Proveedores">Proveedores</asp:ListItem>
+                            </asp:DropDownList>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <%-- Fin NavBar --%>
+
+            <%-- Editable --%>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <%-- Fin Editable --%>
+        </div>
+    </form>
+
+    <%-- Footer --%>
+    <footer class="container-fluid bg-dark text-center position-relative">
+        <div class="row justify-content-center">
+            <div class="col p-2">
+                <asp:Image ID="LogoFooter" runat="server" ImageUrl="~/Vistas/Recursos/LOGOS AGC - LINEA DE PRODUCTOS.png" alt="Logo" Height="120px" />
+            </div>
+            <div class="col align-self-center text-footer">
+                <asp:Label ID="lbFooter" runat="server" Text="Priv. Héroes de Nacozari s/n, Ozumbilla,Tecámac, Santa María Ozumbilla, C.P.55760, Edo. Méx." ForeColor="#0F777E"></asp:Label>
+                <div class="row">
+                    <div class="col contacto">
+                        <asp:HyperLink ID="hlTel" runat="server" NavigateUrl="tel:5562351766"><i class="fa-solid fa-phone m-2 p-2"></i> 55-6235-1766</asp:HyperLink><br />
+                    </div>
+                    <div class="col contacto">
+                        <asp:HyperLink ID="hlWhats" runat="server" NavigateUrl="https://wa.link/sc3elf"><i class="fa-brands fa-whatsapp m-2 p-2"></i> 779 102 3377</asp:HyperLink><br />
+                    </div>
+                </div>
+                <asp:Label ID="lbCopy" runat="server" Text="Derechos reservados - AGC Comercial © 2023" ForeColor="#FE9900"></asp:Label>
+            </div>
+            <div class="col align-self-center">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <asp:HyperLink ID="hlFace" runat="server" NavigateUrl="https://www.facebook.com/agccomercialequipamiento"><i class="fa-brands fa-facebook m-2"></i> @agccomercialequipamiento</asp:HyperLink><br />
+                    </div>
+                    <div class="col">
+                        <asp:HyperLink ID="hlIg" runat="server" NavigateUrl="https://www.facebook.com/agccomercialequipamiento"><i class="fa-brands fa-instagram m-2"></i> @agccomercialequipamiento</asp:HyperLink><br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <%-- Fin Footer --%>
+    <script src="../../../Scripts/bootstrap.min.js"></script>
+</body>
+</html>
